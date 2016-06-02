@@ -1,0 +1,96 @@
+#include<iostream>
+#include<time.h>
+using namespace std;
+int main(){
+setlocale(0,"Russian");
+int a,b;
+cout <<"Введите кол-во строк и ячеек";
+cin >>a;
+int mass[10][10];
+for(int i=0;i<a;i++){
+	for(int j=0;j<a;j++){
+		mass[i][j]=0;
+		
+	}
+}    
+cout <<"Введите цифры от 1 до 8" <<endl;
+cin >>b;
+
+switch(b)
+{
+case 1:
+
+for(int i=0;i<a;i++){
+	for(int j=0;j<a;j++){
+		if(i<j){
+			mass[i][j]=1;}
+	}
+}
+break;
+case 2:
+for(int i=0;i<a;i++){
+	for(int j=0;j<a;j++){
+		if(i>j){
+			mass[i][j]=1;}
+	}	
+}
+break;
+case 3:
+for(int i=0;i<a;i++){
+	for(int j=0;j<a;j++){
+		if(a>i+j){
+			mass[i][j]=1;}
+		}
+}
+for(int i=0;i<a;i++){
+	for(int j=0;j<a;j++){
+		if(i==a-j-1){
+			mass[i][j]=0;}
+	}		
+}
+break;
+
+case 4:
+for(int i=0;i<a;i++){
+	for(int j=0;j<a;j++){
+		if(a<i+j||a==i+j){
+			mass[i][j]=1;}
+	}	
+}
+break;
+
+case 5:
+for(int i=0;i<a;i++){
+	for(int j=0;j<a;j++){
+		if(i<=j&&i<=a-j-1){
+			mass[i][j]=1;}}}
+break;
+case 6:
+for(int i=0;i<a;i++){
+for(int j=0;j<a;j++){
+	if(i>=j&&i>=a-j-1){
+		mass[i][j]=1;}}}
+break;
+case 7:
+for(int i=0;i<a;i++){
+for(int j=0;j<a;j++){
+	if(i<=j&&i>=a-j-1){
+		mass[i][j]=1;}}}
+break;
+case 8:
+for(int i=0;i<a;i++){
+for(int j=0;j<a;j++){
+	if(i>=j&&i<=a-j-1){
+		mass[i][j]=1;}}}
+break;
+}
+for(int i=0;i<a;i++){
+	for(int j=0;j<a;j++){
+		if(mass[i][j]==1){
+			cout <<"*" << " ";}
+		else { 
+			cout <<"."<<" ";}}
+cout <<endl;}
+
+return 0;
+}
